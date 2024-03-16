@@ -1,19 +1,76 @@
 console.log("contentOriginal.js loaded");
 
 
-// Create a container div for holding generated images
-var containerDiv = document.createElement('div');
-containerDiv.id = "imageGallery"; // Set an ID for the container div
-containerDiv.style.position = "fixed";
-containerDiv.style.bottom = "20px";
-containerDiv.style.right = "10px";
-containerDiv.style.width = "300px"; // Set the width of the container (adjust as needed)
-containerDiv.style.height = "400px"; // Set the height of the container (adjust as needed)
-containerDiv.style.overflowY = "auto"; // Add vertical scroll bar if needed
-containerDiv.style.zIndex = "9999"; // Set a very large value for z-index
-//containerDiv.style.backgroundColor = "#FFFFFF"; // Set background color
+// // Create a container div for holding generated images
+// var containerDiv = document.createElement('div');
+// containerDiv.id = "imageGallery"; // Set an ID for the container div
+// containerDiv.style.position = "fixed";
+// containerDiv.style.bottom = "20px";
+// containerDiv.style.right = "10px";
+// containerDiv.style.width = "300px"; // Set the width of the container (adjust as needed)
+// containerDiv.style.height = "400px"; // Set the height of the container (adjust as needed)
+// containerDiv.style.overflowY = "auto"; // Add vertical scroll bar if needed
+// containerDiv.style.zIndex = "9999"; // Set a very large value for z-index
+// containerDiv.style.backgroundColor = "#FFFFFF"; // Set background color
 
-document.body.appendChild(containerDiv);
+
+// Create the container div for holding generated images
+var containerDiv = document.createElement('div');
+containerDiv.id = "imageGallery";
+containerDiv.style.position = "fixed";
+containerDiv.style.top = "0";
+containerDiv.style.left = "0";
+containerDiv.style.width = "220px";
+containerDiv.style.height = "350px";
+containerDiv.style.overflowY = "auto";
+containerDiv.style.zIndex = "9999";
+//containerDiv.style.backgroundColor = "#FFFFFF";
+
+// Create the button-like element
+var buttonLikeElement = document.createElement('div');
+buttonLikeElement.style.position = "absolute";
+buttonLikeElement.style.top = "10px"; // Adjust the top position as needed
+buttonLikeElement.style.left = "10px"; // Adjust the left position as needed
+buttonLikeElement.style.width = "20px"; // Adjust the width as needed
+buttonLikeElement.style.height = "20px"; // Adjust the height as needed
+buttonLikeElement.style.backgroundColor = "yellow"; // Adjust the background color as needed
+buttonLikeElement.style.cursor = "move"; // Change cursor to indicate draggable
+// buttonLikeElement.style.backgroundImage = "url('C:\\Users\\Karthik Chittoor\\Desktop\\Browser Extensions Projects\\Scene to Image generator\\hook.jpg')";
+// buttonLikeElement.style.backgroundSize = "cover"; // Adjust as needed
+// buttonLikeElement.style.backgroundRepeat = "no-repeat";
+buttonLikeElement.style.zIndex = "10000"; // Set a higher z-index than the container div
+
+// Add event listeners for dragging functionality
+var isDragging = false;
+var offsetX, offsetY;
+
+buttonLikeElement.addEventListener('mousedown', function(event) {
+    isDragging = true;
+    offsetX = event.clientX - containerDiv.offsetLeft;
+    offsetY = event.clientY - containerDiv.offsetTop;
+});
+
+document.addEventListener('mousemove', function(event) {
+    if (isDragging) {
+        containerDiv.style.left = (event.clientX - offsetX) + 'px';
+        containerDiv.style.top = (event.clientY - offsetY) + 'px';
+        buttonLikeElement.style.left = (event.clientX - offsetX) + 'px';
+        buttonLikeElement.style.top = (event.clientY - offsetY) + 'px';
+    }
+});
+
+document.addEventListener('mouseup', function() {
+    isDragging = false;
+});
+
+// Append the container div to the button-like element
+buttonLikeElement.appendChild(containerDiv);
+
+// Append the button-like element to the document body
+document.body.appendChild(buttonLikeElement);
+
+
+//document.body.appendChild(containerDiv);
 function TextToPrompt(x){
     return x;
 }
