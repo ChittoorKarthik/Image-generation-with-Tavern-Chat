@@ -10,8 +10,8 @@ This is a chrome extension developed to display AI generated images correspondin
 6.click manage extensions 
 7.turn on developer mode(in top right corner)
 8.click "Load unpacked" (in top left corner) 
-9.select the extracted "Tavern chat Image generator" folder 
-10.make sure that extension with title "Image Extractor Extension" is enabled.
+9.select the extracted "Scene to Image Generator" folder 
+10.make sure that extension with title "Tavern Chat Image Generator" is enabled (It has a spider logo).
 11.click on extension button(puzzle symbol in top right) again and pin "Tavern chat Image generator".
 12.Go to https://yodayo.com/tavern/     to start chatting with a bot.
 13.Whenever you want an image corresponding to the latest message in the chat, click the extension, click the "generate image" button.
