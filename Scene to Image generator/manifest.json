@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Tavern chat Image generator",
+  "version": "1.0",
+  "permissions": [
+    "storage",
+    "tabs",
+    "webNavigation",
+    "activeTab"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "spidy.png",
+      "48": "spidy.png",
+      "128": "spidy.png"
+    }
+  },
+  "icons":{
+      "16": "spidy.png",
+      "48": "spidy.png",
+      "128": "spidy.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://yodayo.com/text-to-image/"],
+      "js": ["content.js"]
+    },
+    {
+      "matches": ["https://yodayo.com/tavern/*"],
+      "js": ["contentOriginal.js"]
+    }
+  ],
+
+  "background": {
+    
+  }
+}
