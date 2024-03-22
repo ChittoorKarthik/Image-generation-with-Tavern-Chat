@@ -3,7 +3,7 @@ console.log("prompt area = ",document.querySelector('textarea[placeholder="Promp
         
 var uniqueArray = [];   // to use the same yodayo image generator tab instead of creating one again and again, stores unique links of generated images
 
-var fantasyPrompt = "gigantic tits, sling bikini";
+var fantasyPrompt = "beautiful face, perfect eyes";
 //document.querySelector('textarea[placeholder="Prompt"]').value = fantasyPrompt;
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms)); // Function to introduce delay
 
